@@ -26,31 +26,31 @@ public class Ejercicio2 {
     /**
      * @param args the command line arguments
      */
+    @SuppressWarnings("empty-statement")
     public static void main(String[] args) {
-        Conexion n = new Conexion();
+        
         Scanner sc = new Scanner(System.in);
-        Connection cn = n.establecerConexion();
-        PreparedStatement p = null;
-        Statement st;
-        ResultSet rs;
+        
         int hacer;
         
 
         do {
             System.out.print("Que deseas hacer:");
-            System.out.print("1. Ver hospital \n2. Eliminar hospital \n3. Actualizar hospital \n4. Nuevo hospital");
+            System.out.print("1. Ver hospital \n2. Eliminar hospital \n3. Actualizar hospital \n4. Nuevo hospital\n");
             hacer=sc.nextInt(); 
 
             switch (hacer){
-                case 1:
-                    cn.ver.java();
-                    break;
-                case 2:
-                    cn.Eliminar.java();
-                    break;
-            } while (hacer != 5);
+                case 1 -> {
+                    Ver lista_hospital = new Ver();
+                    lista_hospital.ver_hospital();
+                }
+                case 2 -> Eliminar.eliminar();
+                case 3 -> System.out.print("Se actualizo");
+                case 4 -> System.out.print("Se agrego");
+            }
+        }while (hacer != 5);
             System.out.print("Se ingreso mal el número");
-}
+}}
             
             /*System.out.print("Ingrese Fecha de Nacimiento (Año-Mes-Día): ");
             String nacimientoStr = sc.nextLine();
@@ -69,4 +69,4 @@ public class Ejercicio2 {
                 System.out.println("Título: " + titulo);
                 System.out.println("Fecha de Nacimiento: " + nacimiento);
                 System.out.println("Edad: " + edad);
-        */
+*/

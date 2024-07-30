@@ -17,7 +17,8 @@ public class Eliminar {
     Connection cn = n.establecerConexion();
     int hospital;
     
-    try{
+    public static void eliminar(){
+    try {
         p = cn.prepareStatement("delete from hospital where id = ?");
         System.out.printIn("ID del hospital que deseas eliminar:");
         hospital = sc.nextInt();
@@ -25,5 +26,6 @@ public class Eliminar {
         p.executeUpdate();
     } catch (Exception e){
         System.err.print("Error "+ e);
+}
 }
 }

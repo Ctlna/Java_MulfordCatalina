@@ -3,25 +3,40 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ejercicio2;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+import java.util.Properties;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Usuario
  */
 public class Conexion {
-    public Conexion () {
-        try {
+    Connection connection;
+
+    public Conexion() throws IOException{
+        Properties props = new Properties();
+        try(InputStream input = getClass().getClassLoader().getResourceAsStream("Config.properties")) {
+            
+            if(input == null){
+                throw new IllegalStateException("Archivo no existente :(");
+            }
+            
+            props.load(input);
+            
+            String url=props.getProperty("url");
+            String user=props.getProperty("user");
+            String password=props.getProperty("password");
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
-            si = DriverManager.getConnection("mysql://uezgrku6encoyi0v:5pNH3nc3ZIfqAwKWCqtX@br9cfbdmn0cso9bzuj8k-mysql.services.clever-cloud.com:3306/br9cfbdmn0cso9bzuj8k ","uezgrku6encoyi0v","5pNH3nc3ZIfqAwKWCqtX");
+            
+            connection=DriverManager.getConnection(url, user, password);
         } catch (ClassNotFoundException | SQLException e) {
             System.err.println("Error:" +e);
         }
-    }
-
-    Connection establecerConexion() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
