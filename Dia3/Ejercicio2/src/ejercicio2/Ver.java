@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package ejercicio2;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,7 +17,7 @@ public class Ver {
     Scanner sc = new Scanner(System.in);
     public Ver(){}
 
-    public void ver_hospital() {
+    public void ver_hospital() throws IOException {
         Conexion cn = new Conexion();
         Statement st;
         ResultSet rs;
