@@ -11,5 +11,5 @@ package dia13;
 public class Carrera {
     protected long recorrido = 0;
     
-    recorrido=System.currentTimeMillis();
+    //recorrido=System.currentTimeMillis();
 }
