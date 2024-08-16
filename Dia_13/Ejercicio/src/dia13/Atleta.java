@@ -8,52 +8,43 @@ package dia13;
  *
  * @author camper
  */
-public class Atleta extends Carrera {
-    protected int Corredor1;
-    protected int Corredor2;
-    protected int Corredor3;
-    protected int Corredor4;
+public class Atleta implements Runnable {
+    private int numero;
+    private boolean esUltimo;
 
-    public Atleta(int Corredor1, int Corredor2, int Corredor3, int Corredor4) {
-        this.Corredor1 = Corredor1;
-        this.Corredor2 = Corredor2;
-        this.Corredor3 = Corredor3;
-        this.Corredor4 = Corredor4;
+    public Atleta(int numero, boolean esUltimo) {
+        this.numero = numero;
+        this.esUltimo = esUltimo;
     }
 
-    public int getCorredor1() {
-        return Corredor1;
-    }
+    @Override
+    public void run() {
+        synchronized (Carrera.testigo) {
+            try {
+                while (numero != Carrera.turno) {
+                    Carrera.testigo.wait();
+                }
 
-    public void setCorredor1(int Corredor1) {
-        this.Corredor1 = Corredor1;
-    }
+                System.out.println("Atleta " + numero + " comienza a correr...");
+                
+                long tiempoInicio = System.currentTimeMillis();
+                System.out.println(tiempoInicio);
+                Thread.sleep((long) (Math.random() * 2000 + 9000));
 
-    public int getCorredor2() {
-        return Corredor2;
-    }
+                long tiempoFin = System.currentTimeMillis();
+                System.out.println(tiempoFin);
+                System.out.println("Atleta " + numero + " terminó en " + 
+                    (tiempoFin - tiempoInicio) / 1000.0 + " segundos.");
 
-    public void setCorredor2(int Corredor2) {
-        this.Corredor2 = Corredor2;
-    }
+                Carrera.turno++;
 
-    public int getCorredor3() {
-        return Corredor3;
-    }
+                if (!esUltimo) {
+                    Carrera.testigo.notifyAll(); 
+                }
 
-    public void setCorredor3(int Corredor3) {
-        this.Corredor3 = Corredor3;
-    }
-
-    public int getCorredor4() {
-        return Corredor4;
-    }
-
-    public void setCorredor4(int Corredor4) {
-        this.Corredor4 = Corredor4;
-    }
-    
-    public void run(){
-        
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
