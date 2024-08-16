@@ -1,18 +1,15 @@
-package Ejemplo_incrementacion.Sincroniza.Falla;
+package Ejemplo_Implementacion.Sincronia.Falla;
 
-public class CounterThread extends Thread{
+public class CounterThread extends Thread {
     private Counter counter;
-
     public CounterThread(Counter counter) {
-        this.counter=counter;
+        this.counter = counter;
     }
 
     @Override
     public void run() {
-        for (int = 0; int < 1000; i++){
+        for (int i = 0; i < 1000; i++) {
             counter.increment();
-
-
         }
     }
 }

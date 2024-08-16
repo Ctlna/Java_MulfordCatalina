@@ -1,4 +1,4 @@
-package Ejemplo_incrementacion.InterrfazRunnable;
+package Ejemplo_Implementacion.InterrfazRunnable;
 
 public class Main {
     public static void main(String[] args) {
