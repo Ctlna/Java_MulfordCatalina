@@ -1,7 +1,5 @@
 package Ejemplo_incrementacion.Sincroniza.Bien;
 
-import Ejemplo_incrementacion.Sincroniza.Falla.Counter;
-
 public class CounterThread extends Thread{
     private Counter counter;
 
@@ -11,10 +9,8 @@ public class CounterThread extends Thread{
 
     @Override
     public void run() {
-        for (int = 0; int < 1000; i++){
+        for (int i = 0; i < 1000; i++){
             counter.increment();
-
-
         }
     }
 }

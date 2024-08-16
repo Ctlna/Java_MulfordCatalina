@@ -1,8 +1,5 @@
 package Ejemplo_incrementacion.Sincroniza.Bien;
 
-import Ejemplo_incrementacion.Sincroniza.Falla.Counter;
-import Ejemplo_incrementacion.Sincroniza.Falla.CounterThread;
-
 public class Main {
     public static void main(String[]args){
         Counter counter = new Counter();
@@ -20,8 +17,5 @@ public class Main {
             e.printStackTrace();
         }
         System.out.println("Contador final (No sincronizado): "+counter.getCount());
-    }
-}
-
     }
 }
