@@ -11,8 +11,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
 
 public class LecturaEscritura {
+    Scanner sc = new Scanner(System.in);
     private BufferedReader reader;
     private BufferedWriter writer;
     private String filename;
