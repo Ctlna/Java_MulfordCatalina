@@ -1,6 +1,10 @@
 package com.local.logica;
+import java.sql.Statement;
+import java.util.Scanner;
 
 public abstract class Tarjeta {
+    Scanner sc = new Scanner(System.in);
+    Conexion cn = new Conexion();
     private String numeroDeCuenta;
     private double valorApertura;
     private String mes;
