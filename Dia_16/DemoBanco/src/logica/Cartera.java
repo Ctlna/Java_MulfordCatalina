@@ -1,9 +1,12 @@
 package com.local.logica;
 
+import com.mysql.cj.xdevapi.Statement;
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cartera implements PatronCartera {
+    Scanner sc = new Scanner(System.in);
     private String anho;
 
     private List<Tarjeta> tarjetas;
