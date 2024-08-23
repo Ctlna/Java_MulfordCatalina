@@ -16,7 +16,6 @@ public class Producto {
         }
     }
 
-    // Método para obtener todos los productos
     public List<Producto> obtenerTodosLosProductos() {
         List<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM Producto";
@@ -38,7 +37,6 @@ public class Producto {
         return productos;
     }
 
-    // Método para agregar un nuevo producto
     public boolean agregarProducto(Producto producto) {
         String sql = "INSERT INTO Producto(nombre, precio) VALUES(?, ?)";
         
@@ -54,6 +52,4 @@ public class Producto {
             return false;
         }
     }
-    
-    // Aquí puedes agregar otros métodos como actualizarProducto, eliminarProducto, etc.
 }
