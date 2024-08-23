@@ -15,7 +15,6 @@ public class Factura_producto {
         }
     }
 
-    // Método para calcular el total de la compra
     public BigDecimal calcularTotalCompra(int idFactura) {
         BigDecimal total = BigDecimal.ZERO;
         String sql = "SELECT p.precio, fp.cantidad, fp.descuento " +
@@ -43,7 +42,6 @@ public class Factura_producto {
         return total;
     }
 
-    // Método para agregar un producto a una factura con un descuento opcional
     public boolean agregarProductoAFactura(FacturaProducto productoFactura, BigDecimal porcentajeDescuento) {
         String sql = "INSERT INTO Factura_producto(id_factura, id_producto, cantidad, descuento) VALUES(?, ?, ?, ?)";
         
