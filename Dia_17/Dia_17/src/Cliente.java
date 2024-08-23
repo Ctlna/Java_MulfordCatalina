@@ -15,7 +15,6 @@ public class Cliente {
         }
     }
 
-    // Método para obtener todos los clientes
     public List<Cliente> obtenerTodosLosClientes() {
         List<Cliente> clientes = new ArrayList<>();
         String sql = "SELECT * FROM Cliente";
@@ -37,7 +36,6 @@ public class Cliente {
         return clientes;
     }
 
-    // Método para agregar un nuevo cliente
     public boolean agregarCliente(Cliente cliente) {
         String sql = "INSERT INTO Cliente(nombre, tipo) VALUES(?, ?)";
         
